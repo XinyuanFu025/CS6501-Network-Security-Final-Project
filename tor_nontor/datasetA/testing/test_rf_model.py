@@ -9,7 +9,7 @@ from sklearn.metrics import accuracy_score, classification_report
 import joblib
 
 # Step 1: Load data
-df = pd.read_csv("tor_nontor/datasetA/Scenario-A-merged_5s.csv")
+df = pd.read_csv("../Scenario-A-merged_5s.csv")
 df.columns = df.columns.str.strip()
 
 # Step 2: Label & features
@@ -43,7 +43,7 @@ print("\n===== Accuracy of new (just trained) model =====")
 print("Accuracy:", accuracy_score(y_test, y_dummy_pred))
 
 # Step 8: Load saved model
-loaded_model = joblib.load("rf_model.pkl")
+loaded_model = joblib.load("../models/rf_model.pkl")
 y_loaded_pred = loaded_model.predict(X_test)
 print("\n===== Accuracy of loaded (pretrained) model =====")
 print("Accuracy:", accuracy_score(y_test, y_loaded_pred))

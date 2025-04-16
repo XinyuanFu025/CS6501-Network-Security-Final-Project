@@ -12,7 +12,7 @@ from tensorflow.keras.utils import to_categorical
 import joblib
 
 # Step 1: Load dataset
-df = pd.read_csv("tor_nontor/datasetA/Scenario-A-merged_5s.csv")
+df = pd.read_csv("../Scenario-A-merged_5s.csv")
 df.columns = df.columns.str.strip()
 
 # Step 2: Labels
