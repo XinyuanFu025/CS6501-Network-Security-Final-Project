@@ -10,7 +10,7 @@ import joblib
 import random
 
 # Step 1: Load data
-df = pd.read_csv("Scenario-A-merged_5s.csv")
+df = pd.read_csv("tor_nontor/datasetA/Scenario-A-merged_5s.csv")
 df.columns = df.columns.str.strip()
 
 # Step 2: Label & features
