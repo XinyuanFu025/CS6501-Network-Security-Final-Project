@@ -10,7 +10,7 @@ import joblib
 import random
 
 # Step 1: Load dataset
-df = pd.read_csv("../Scenario-A-merged_5s.csv")
+df = pd.read_csv("tor_nontor/datasetA/Scenario-A-merged_5s.csv")
 df.columns = df.columns.str.strip()
 
 # Step 2: Extract features and labels
@@ -48,7 +48,7 @@ print("Classification Report:")
 print(classification_report(y_test, random_preds))
 
 # Step 8: Load trained KNN model
-knn_model = joblib.load("../models/knn_model.pkl")
+knn_model = joblib.load("tor_nontor/datasetA/models/knn_model.pkl")
 y_pred = knn_model.predict(X_test)
 
 print("\n===== Accuracy of loaded (pretrained) KNN model =====")
