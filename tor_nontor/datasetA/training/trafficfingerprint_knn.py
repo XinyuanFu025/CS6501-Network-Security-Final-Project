@@ -36,7 +36,7 @@ model = KNeighborsClassifier(n_neighbors=5)  # 默认取最近5个邻居
 model.fit(X_train, y_train)
 
 # Step 8: Save model
-joblib.dump(model, "../models/knn_model.pkl")
+joblib.dump(model, "../model/knn_model.pkl")
 print("KNN model saved as knn_model.pkl")
 
 # Step 9: Evaluate

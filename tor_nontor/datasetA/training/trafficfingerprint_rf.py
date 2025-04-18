@@ -39,7 +39,7 @@ model = RandomForestClassifier(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
 
 # Step 9: Save the trained model
-joblib.dump(model, "../models/rf_model.pkl")
+joblib.dump(model, "../model/rf_model.pkl")
 print("Random Forest model saved as rf_model.pkl")
 
 # Step 10: Evaluate

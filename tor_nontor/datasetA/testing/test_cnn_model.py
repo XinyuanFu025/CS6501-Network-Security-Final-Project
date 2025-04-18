@@ -43,7 +43,7 @@ print("Classification Report:")
 print(classification_report(y_test, random_preds, target_names=label_encoder.classes_))
 
 # Step 8: Load trained CNN model
-model = load_model("../models/cnn_model.h5")
+model = load_model("../model/cnn_model.h5")
 y_pred_probs = model.predict(X_test)
 y_pred = (y_pred_probs > 0.5).astype("int32").flatten()
 

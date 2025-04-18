@@ -48,7 +48,7 @@ print("Classification Report:")
 print(classification_report(y_test, random_preds))
 
 # Step 8: Load trained SVM model
-svm_model = joblib.load("../models/svm_model.pkl")
+svm_model = joblib.load("../model/svm_model.pkl")
 y_pred = svm_model.predict(X_test)
 
 print("\n===== Accuracy of loaded (pretrained) SVM model =====")

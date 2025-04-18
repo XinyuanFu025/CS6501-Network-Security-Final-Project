@@ -39,7 +39,7 @@ model = SVC(kernel='rbf', C=1.0, gamma='scale')  # 可调参数
 model.fit(X_train, y_train)
 
 # Step 9: Save the trained model
-joblib.dump(model, "../models/svm_model.pkl")
+joblib.dump(model, "../model/svm_model.pkl")
 print("SVM model saved as svm_model.pkl")
 
 # Step 10: Evaluate

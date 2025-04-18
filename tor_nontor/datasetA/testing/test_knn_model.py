@@ -48,7 +48,7 @@ print("Classification Report:")
 print(classification_report(y_test, random_preds))
 
 # Step 8: Load trained KNN model
-knn_model = joblib.load("tor_nontor/datasetA/models/knn_model.pkl")
+knn_model = joblib.load("tor_nontor/datasetA/model/knn_model.pkl")
 y_pred = knn_model.predict(X_test)
 
 print("\n===== Accuracy of loaded (pretrained) KNN model =====")

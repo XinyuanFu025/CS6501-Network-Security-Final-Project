@@ -121,7 +121,7 @@ def evaluate_model(model, data_loader, device):
 # train_model(model, train_loader, val_loader, num_epochs=50, device=device, save_path="../model/cnn.pth")
 
 # Load best model
-model.load_state_dict(torch.load("../model/cnn.pth"))
+model.load_state_dict(torch.load("../model/cnn.pth", map_location=torch.device('cpu')))
 model.to(device)
 model.eval()
 
