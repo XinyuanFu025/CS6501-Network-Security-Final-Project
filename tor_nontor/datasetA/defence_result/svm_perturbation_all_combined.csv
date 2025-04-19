@@ -1,0 +1,7 @@
+perturbation,level,accuracy
+combined_all,0.01,0.9215145972397083
+combined_all,0.05,0.9305294914126897
+combined_all,0.1,0.8946955840083617
+combined_all,0.15,0.9103855381618643
+combined_all,0.2,0.8787086965817041
+combined_all,0.25,0.8829013943986508
