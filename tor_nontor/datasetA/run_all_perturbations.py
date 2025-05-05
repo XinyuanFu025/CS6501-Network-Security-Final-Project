@@ -2,7 +2,7 @@ import subprocess
 import os
 import shutil
 
-# 所有要运行的脚本
+# all scripts
 scripts = [
     "batch_run_cnn_combined_perturbations.py",
     "batch_run_cnn_perturbations.py",
@@ -16,7 +16,7 @@ scripts = [
     "batch_run_svm_perturbations.py",
 ]
 
-# 每个脚本运行后可能会产生的csv（你也可以根据实际情况更改）
+# generated csv file from each scripts
 expected_csv_files = {
     "cnn_perturbation_results.csv",
     "cnn_perturbation_all_combined.csv",
@@ -30,26 +30,25 @@ expected_csv_files = {
     "svm_perturbation_all_combined.csv",
 }
 
-# 执行次数
+# run time
 num_runs = 10
 
 for i in range(1, num_runs + 1):
-    print(f"\n🌀 开始第 {i} 轮测试...")
+    print(f"\n Round {i} ...")
     run_dir = f"results/run_{i:02d}"
     os.makedirs(run_dir, exist_ok=True)
 
-    # 运行每个脚本
     for script in scripts:
-        print(f"🚀 运行脚本：{script}")
+        print(f" running script：{script}")
         subprocess.run(["python", script], check=True)
 
-    # 移动所有生成的csv文件到对应文件夹
+    # move generated csv
     for fname in expected_csv_files:
         if os.path.exists(fname):
             target_path = os.path.join(run_dir, fname)
             shutil.move(fname, target_path)
-            print(f"✅ 移动 {fname} 到 {target_path}")
+            print(f" Move {fname} to {target_path}")
         else:
-            print(f"⚠️ 警告：找不到结果文件 {fname}，可能该脚本没有生成？")
+            print(f"error: no found {fname}")
 
-print("\n🎉 所有轮次运行完毕！结果已归档到 results/run_xx 文件夹中。")
+print("\n all done, results saving results/run_xx ")

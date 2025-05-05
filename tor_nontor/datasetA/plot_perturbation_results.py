@@ -2,15 +2,13 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# 模型名列表
+
 model_names = ["cnn", "knn", "lstm", "rf", "svm"]
-# 聚合结果所在文件夹
+# folder where all aggregated results stored
 base_dir = "aggregated_results"
 
-# 存储每个模型的数据
 model_data = {}
 
-# 读取每个模型的聚合CSV（单独扰动 + 联合扰动）
 for model in model_names:
     dfs = []
 
@@ -29,7 +27,7 @@ for model in model_names:
         df_all = pd.concat(dfs, ignore_index=True)
         model_data[model] = df_all
 
-# ========== 第1~5张图：每个模型一张，5条线 ========== #
+# plot each model
 for model, df in model_data.items():
     plt.figure(figsize=(8, 5))
     for pert in sorted(df["perturbation"].unique()):
@@ -45,7 +43,7 @@ for model, df in model_data.items():
     plt.savefig(f"{model}_accuracy_vs_perturbation_lines.png")
     plt.close()
 
-# ========== 第6张图：所有模型在混合扰动下的表现 ========== #
+# accross different model
 plt.figure(figsize=(8, 5))
 for model, df in model_data.items():
     comb_df = df[df["perturbation"] == "combined_all"]

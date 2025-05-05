@@ -35,11 +35,12 @@ def test_with_saved_knn(model_path='knn_model.pkl', csv_path='Scenario-A-merged_
 
 
 def main():
-    levels = [0.01, 0.05, 0.10, 0.15, 0.20, 0.25]
+    #levels = [0.01, 0.05, 0.10, 0.15, 0.20, 0.25]
+    levels = [round(x, 2) for x in np.arange(0.01, 0.26, 0.01)]
     results = []
 
     for lvl in levels:
-        print(f'正在测试 Combined Perturbation @ level={lvl:.2f}')
+        print(f'Testing Combined Perturbation @ level={lvl:.2f}')
         generate_combined_perturbed_data(lvl)
         acc = test_with_saved_knn()
         print(f'Combined @ {lvl:.2f} => Accuracy: {acc:.4f}')
@@ -51,7 +52,7 @@ def main():
 
     df_results = pd.DataFrame(results)
     df_results.to_csv('knn_perturbation_all_combined.csv', index=False)
-    print("\n所有结果已保存至 knn_perturbation_all_combined.csv")
+    print("\nsaved knn_perturbation_all_combined.csv")
 
 if __name__ == '__main__':
     main()

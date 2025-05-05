@@ -60,12 +60,13 @@ def test_with_saved_lstm(model_path='lstm_model.h5', csv_path='Scenario-A-merged
 
 def main():
     perturb_types = ['gaussian', 'random_sc', 'feature_d', 'feature_p']
-    levels = [0.01, 0.05, 0.10, 0.15, 0.20, 0.25]
+    #levels = [0.01, 0.05, 0.10, 0.15, 0.20, 0.25]
+    levels = [round(x, 2) for x in np.arange(0.01, 0.26, 0.01)]
     results = []
 
     for p_type in perturb_types:
         for lvl in levels:
-            print(f'正在测试 {p_type} @ level={lvl:.2f}')
+            print(f'Testing {p_type} @ level={lvl:.2f}')
             generate_perturbed_data(p_type, lvl)
             acc = test_with_saved_lstm()
             print(f'{p_type} @ {lvl:.2f} => Accuracy: {acc:.4f}')
@@ -77,7 +78,7 @@ def main():
 
     df_results = pd.DataFrame(results)
     df_results.to_csv('lstm_perturbation_results.csv', index=False)
-    print("\n所有结果已保存至 lstm_perturbation_results.csv")
+    print("\nsaved lstm_perturbation_results.csv")
 
 if __name__ == '__main__':
     main()
